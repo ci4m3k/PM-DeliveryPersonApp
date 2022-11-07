@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeliveryPersonApp.NavPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,11 @@ namespace DeliveryPersonApp
         public HomePage()
         {
             InitializeComponent();
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ProfilePage());
         }
     }
 }

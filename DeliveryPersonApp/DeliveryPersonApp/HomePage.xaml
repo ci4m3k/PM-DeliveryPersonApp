@@ -4,8 +4,13 @@
             xmlns:local="clr-namespace:DeliveryPersonApp.NavPages"
              x:Class="DeliveryPersonApp.HomePage">
 
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="Profil"
+                     Clicked="ToolbarItem_Clicked"/>
+    </TabbedPage.ToolbarItems>
+
     <local:ParcelPage Title="Przesyłki"/>
+    <local:MapPage Title="Mapa"/>
     <local:StatsPage Title="Statystyki"/>
-    <local:ProfilePage Title="Profil"/>
 
 </TabbedPage>
