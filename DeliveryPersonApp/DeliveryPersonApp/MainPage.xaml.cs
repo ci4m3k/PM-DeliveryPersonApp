@@ -1,5 +1,4 @@
-﻿using DeliveryPersonApp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -18,7 +17,19 @@ namespace DeliveryPersonApp
 
         private void LoginButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new HomePage());
+            bool isEmailEmpty = string.IsNullOrEmpty(emailEntry.Text);
+            bool isPasswordEmpty = string.IsNullOrEmpty(passwordEntry.Text);
+
+            if (!isEmailEmpty && !isPasswordEmpty)
+            {
+                Navigation.PushAsync(new HomePage());
+            }
+            else
+            {
+                DisplayAlert("Błąd", "Nie podano adresu email lub hasła", "Ok");
+            }
+
+            // walidacja
         }
     }
 }
