@@ -1,15 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:DeliveryPersonApp.Model"
              x:Class="DeliveryPersonApp.NavPages.ParcelPage">
 
-    <ListView x:Name="parcelListView">
-        <ListView.ItemTemplate>
+    <CollectionView x:Name="parcelListView"
+                    SelectionMode="None">
+        <CollectionView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding Number}"
-                          Detail="{Binding Description}"/>
+                <StackLayout Padding="10" x:DataType="model:Parcel">
+                    <Label Text="{Binding Number}" 
+                            LineBreakMode="NoWrap"  
+                            FontSize="16" />
+                    <Label Text="{Binding Description}" 
+                            LineBreakMode="NoWrap"
+                            FontSize="13" />
+                    <Label Text="{Binding Status}" 
+                            LineBreakMode="NoWrap"
+                            FontSize="13"
+                            TextColor="DeepSkyBlue"/>
+                </StackLayout>
             </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 
 </ContentPage>
