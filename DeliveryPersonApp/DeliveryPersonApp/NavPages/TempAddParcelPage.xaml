@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeliveryPersonApp.NavPages.TempAddParcelPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="numberEntry"
+                   Placeholder="numer przesylki" />
+            <Entry x:Name="descriptionEntry"
+                   Placeholder="opis przesylki" />
+            <Entry x:Name="statusEntry"
+                   Placeholder="status przesylki" />
+            <Button Text="Dodaj"
+                    Clicked="AddParcelButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

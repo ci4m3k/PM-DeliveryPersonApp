@@ -22,5 +22,11 @@ namespace DeliveryPersonApp
         {
             Navigation.PushAsync(new ProfilePage());
         }
+
+        // temp
+        private void AddParcelItem_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new TempAddParcelPage());
+        }
     }
 }

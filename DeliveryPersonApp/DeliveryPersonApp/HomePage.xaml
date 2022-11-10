@@ -5,6 +5,8 @@
              x:Class="DeliveryPersonApp.HomePage">
 
     <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="Dodaj"
+                     Clicked="AddParcelItem_Clicked"/>  <!-- temp -->
         <ToolbarItem Text="Profil"
                      Clicked="ToolbarItem_Clicked"/>
     </TabbedPage.ToolbarItems>
