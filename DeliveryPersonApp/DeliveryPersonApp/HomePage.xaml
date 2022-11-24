@@ -8,11 +8,15 @@
         <ToolbarItem Text="Dodaj"
                      Clicked="AddParcelItem_Clicked"/>  <!-- temp -->
         <ToolbarItem Text="Profil"
+                     IconImageSource="ic_action_person.png"
                      Clicked="ToolbarItem_Clicked"/>
     </TabbedPage.ToolbarItems>
 
-    <local:ParcelPage Title="Przesyłki"/>
-    <local:MapPage Title="Mapa"/>
-    <local:StatsPage Title="Statystyki"/>
+    <local:ParcelPage Title="Przesyłki"
+                      IconImageSource="ic_action_home.png"/>
+    <local:MapPage Title="Mapa"
+                   IconImageSource="ic_action_map.png"/>
+    <local:StatsPage Title="Statystyki"
+                     IconImageSource="ic_action_list.png"/>
 
 </TabbedPage>
