@@ -15,6 +15,10 @@ namespace DeliveryPersonApp.NavPages
         public ProfilePage()
         {
             InitializeComponent();
+
+            var assembly = typeof(ProfilePage);
+
+            profileImage.Source = ImageSource.FromResource("DeliveryPersonApp.Assets.Images.ic_launcher.png", assembly);
         }
     }
 }
