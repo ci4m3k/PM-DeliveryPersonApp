@@ -1,8 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat;assembly=Xamarin.Forms.Core"
              x:Class="DeliveryPersonApp.App">
+    
     <Application.Resources>
+        <ResourceDictionary>
 
+            <Color x:Key="blueColor">#536DFE</Color>
+            <Color x:Key="purpleColor">#6A3DE7</Color>
+
+            <Style x:Key="normalButton" TargetType="Button">
+                <Setter Property="TextColor" Value="WhiteSmoke"/>
+            </Style>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackground" Value="{StaticResource blueColor}">
+                    <!--<LinearGradientBrush StartPoint="0,0"
+                                         EndPoint="0,1">
+                        <GradientStop Color="{StaticResource blueColor}" 
+                                      Offset="0.01" />
+                        <GradientStop Color="{StaticResource purpleColor}"
+                                      Offset="1.0" />
+                    </LinearGradientBrush>-->
+                </Setter>
+                <Setter Property="BarTextColor" Value="WhiteSmoke"/>
+                <Setter Property="android:NavigationPage.BarHeight" Value="140" />
+            </Style>
+
+        </ResourceDictionary>
     </Application.Resources>
+    
 </Application>

@@ -5,6 +5,8 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using System.IO;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 namespace DeliveryPersonApp.Droid
 {
@@ -18,6 +20,8 @@ namespace DeliveryPersonApp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.FormsMaps.Init(this, savedInstanceState);
+
+            SetStatusBarColor(Color.FromHex("#536DFE").ToAndroid());
 
             string dbName = "parcel_db.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);

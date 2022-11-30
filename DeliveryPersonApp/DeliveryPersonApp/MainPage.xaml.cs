@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeliveryPersonApp.NavPages;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,6 +14,9 @@ namespace DeliveryPersonApp
         public MainPage()
         {
             InitializeComponent();
+
+            var assembly = typeof(MainPage);
+            profileImage.Source = ImageSource.FromResource("DeliveryPersonApp.Assets.Images.logo.png", assembly);
         }
 
         private void LoginButton_Clicked(object sender, EventArgs e)

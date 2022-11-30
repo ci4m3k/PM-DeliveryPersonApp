@@ -3,61 +3,79 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects="clr-namespace:PlainEntryAndroidSample.Effects"
              x:Class="DeliveryPersonApp.MainPage"
-             Title="Delivery Person App">
+             
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="WhiteSmoke">
 
     <ContentPage.Resources>
+        
         <ResourceDictionary>
             <Style TargetType="Entry">
                 <Setter Property="HorizontalOptions" Value="Fill" />
-                <Setter Property="TextColor" Value="#2d4656" />
+                <Setter Property="TextColor" Value="#2d2d2d" />
             </Style>
             <Style TargetType="Frame">
                 <Setter Property="CornerRadius" Value="20" />
             </Style>
         </ResourceDictionary>
+        
     </ContentPage.Resources>
 
     <ContentPage.Content>
 
         <FlexLayout Direction="Column"
-                    JustifyContent="Center"
+                    JustifyContent="Start"
                     Margin="20">
 
-            <Label FontSize="Title"
-                   TextColor="DeepSkyBlue"
-                   FontAttributes="Bold"
-                   Text="Logowanie"/>
+            <Frame Padding="0"
+                   Margin="0,50,0,65"
+                   HeightRequest="150"
+                   WidthRequest="150"
+                   FlexLayout.AlignSelf="Center">
+                <Image x:Name="profileImage"
+                       Aspect="AspectFill"
+                       HeightRequest="150"
+                       WidthRequest="150"/>
+            </Frame>
+
+            <Label Text="Logowanie"
+                   TextColor="{StaticResource blueColor}"
+                   FontSize="Title"
+                   FontAttributes="Bold"/>
+
             <Frame Padding="5"
                    Margin="0,15,0,15"
                    BorderColor="DarkGray">
                 <Entry x:Name="emailEntry"
-                       Placeholder="Email"
-                       Keyboard="Email">
+                        Placeholder="Email"
+                        Keyboard="Email">
                     <Entry.Effects>
                         <effects:PlainEntry/>
                     </Entry.Effects>
                 </Entry>
             </Frame>
+
             <Frame Padding="5"
                    Margin="0,0,0,15"
                    BorderColor="DarkGray">
                 <Entry x:Name="passwordEntry"
-                   Placeholder="Hasło"
-                   IsPassword="True">
-                    <Entry.Effects>
-                        <effects:PlainEntry/>
-                    </Entry.Effects>
-                </Entry>
+                         Placeholder="Hasło"
+                         IsPassword="True">
+                        <Entry.Effects>
+                            <effects:PlainEntry/>
+                        </Entry.Effects>
+                    </Entry>
             </Frame>
+            
             <Frame Padding="0"
                    Margin="0,15,0,0">
                 <Button x:Name="loginButton"
-                        Text="Zaloguj"
-                        Clicked="LoginButton_Clicked"
-                        BackgroundColor="DeepSkyBlue"
-                        TextColor="#edf4f9"
-                        CornerRadius="20"
-                        FontAttributes="Bold"/>
+                          Clicked="LoginButton_Clicked"
+                          Text="Zaloguj"
+                          BackgroundColor="{StaticResource blueColor}"
+                          CornerRadius="20"
+                          FontAttributes="Bold"
+                          Style="{StaticResource normalButton}"/>
             </Frame>
         </FlexLayout>
 

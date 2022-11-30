@@ -1,8 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:DeliveryPersonApp.NavPages"
-             x:Class="DeliveryPersonApp.HomePage">
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            x:Class="DeliveryPersonApp.HomePage"
+            
+            NavigationPage.HasBackButton="False"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BackgroundColor="WhiteSmoke"
+            BarBackgroundColor="White"
+            UnselectedTabColor="DarkGray"
+            SelectedTabColor="{StaticResource blueColor}">
+
+    <!--<TabbedPage.BarBackground>
+        <LinearGradientBrush StartPoint="0,0"
+                              EndPoint="1,1">
+            <GradientStop Color="#536DFE" 
+                              Offset="0.1" />
+            <GradientStop Color="#6A3DE8"
+                              Offset="1.0" />
+        </LinearGradientBrush>
+    </TabbedPage.BarBackground>-->
 
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Dodaj"
@@ -15,7 +33,9 @@
     <local:ParcelPage Title="Przesyłki"
                       IconImageSource="ic_action_home.png"/>
     <local:MapPage Title="Mapa"
-                   IconImageSource="ic_action_map.png"/>
+                   IconImageSource="ic_action_map.png"
+                   Appearing="MapPage_Appearing"
+                   Disappearing="MapPage_Disappearing"/>
     <local:StatsPage Title="Statystyki"
                      IconImageSource="ic_action_list.png"/>
 

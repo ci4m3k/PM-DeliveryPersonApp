@@ -28,5 +28,15 @@ namespace DeliveryPersonApp
         {
             Navigation.PushAsync(new TempAddParcelPage());
         }
+
+        private void MapPage_Appearing(object sender, EventArgs e)
+        {
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
+
+        private void MapPage_Disappearing(object sender, EventArgs e)
+        {
+            NavigationPage.SetHasNavigationBar(this, true);
+        }
     }
 }
