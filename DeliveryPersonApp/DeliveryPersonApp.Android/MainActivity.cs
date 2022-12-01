@@ -5,6 +5,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using System.IO;
+using Plugin.Media;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 

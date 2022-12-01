@@ -4,20 +4,31 @@
              x:Class="DeliveryPersonApp.NavPages.ProfilePage">
     
     <ContentPage.Content>
-        
+
         <Frame Padding="5"
                Margin="20"
                BorderColor="DarkGray"
                CornerRadius="40">
-            
+
             <FlexLayout Direction="Column"
                         JustifyContent="Start"
                         Margin="20">
 
-               <Image x:Name="profileImage"
-                        Aspect="AspectFit"
-                        HorizontalOptions="FillAndExpand"
-                        Margin="50"/>
+                <Frame Padding="0"
+                       Margin="0,0,0,10"
+                       HeightRequest="140"
+                       WidthRequest="140"
+                       CornerRadius="100"
+                       BorderColor="Transparent"
+                       FlexLayout.AlignSelf="Center">
+
+                    <Image x:Name="profileImage"
+                           Aspect="AspectFill" />
+                </Frame>
+
+                <Button x:Name="makePhotoButton" 
+                        Text="Zrób zdjęcie"
+                        Clicked="makePhotoButton_Clicked" />
 
                 <Label Text="ID: "
                        FontAttributes="Bold"/>
@@ -27,8 +38,8 @@
                        FontAttributes="Bold"/>
 
             </FlexLayout>
-            
+
         </Frame>
-        
+
     </ContentPage.Content>
 </ContentPage>
