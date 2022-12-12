@@ -1,4 +1,4 @@
-﻿using DeliveryPersonApp.NavPages;
+﻿using DeliveryPersonApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace DeliveryPersonApp
+namespace DeliveryPersonApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : TabbedPage

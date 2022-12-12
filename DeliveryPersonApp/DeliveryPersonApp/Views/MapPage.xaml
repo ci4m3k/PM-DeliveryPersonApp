@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-             x:Class="DeliveryPersonApp.NavPages.MapPage">
+             x:Class="DeliveryPersonApp.Views.MapPage">
     
     <maps:Map x:Name="locationsMap"
               IsShowingUser="False"

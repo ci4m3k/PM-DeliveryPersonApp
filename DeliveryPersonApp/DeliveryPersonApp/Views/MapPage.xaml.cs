@@ -11,7 +11,7 @@ using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using Position = Xamarin.Forms.Maps.Position;
 
-namespace DeliveryPersonApp.NavPages
+namespace DeliveryPersonApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage

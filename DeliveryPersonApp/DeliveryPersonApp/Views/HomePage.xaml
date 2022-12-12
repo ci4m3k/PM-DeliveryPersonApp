@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:local="clr-namespace:DeliveryPersonApp.NavPages"
+            xmlns:local="clr-namespace:DeliveryPersonApp.Views"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-            x:Class="DeliveryPersonApp.HomePage"
+            x:Class="DeliveryPersonApp.Views.HomePage"
             
             NavigationPage.HasBackButton="False"
             android:TabbedPage.ToolbarPlacement="Bottom"
@@ -24,7 +24,8 @@
 
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Dodaj"
-                     Clicked="AddParcelItem_Clicked"/>  <!-- temp -->
+                     Clicked="AddParcelItem_Clicked"/>
+        <!-- temp -->
         <ToolbarItem Text="Profil"
                      IconImageSource="ic_action_person.png"
                      Clicked="ToolbarItem_Clicked"/>

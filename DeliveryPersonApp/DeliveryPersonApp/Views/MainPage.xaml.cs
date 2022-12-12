@@ -1,4 +1,4 @@
-﻿using DeliveryPersonApp.NavPages;
+﻿using DeliveryPersonApp.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace DeliveryPersonApp
+namespace DeliveryPersonApp.Views
 {
     public partial class MainPage : ContentPage
     {
@@ -27,6 +27,7 @@ namespace DeliveryPersonApp
             if (!isEmailEmpty && !isPasswordEmpty)
             {
                 Navigation.PushAsync(new HomePage());
+                Navigation.RemovePage(this);
             }
             else
             {

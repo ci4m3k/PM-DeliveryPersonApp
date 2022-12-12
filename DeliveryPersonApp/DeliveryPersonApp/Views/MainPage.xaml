@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects="clr-namespace:PlainEntryAndroidSample.Effects"
-             x:Class="DeliveryPersonApp.MainPage"
+             x:Class="DeliveryPersonApp.Views.MainPage"
              
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="WhiteSmoke">
