@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -29,6 +28,16 @@ namespace DeliveryPersonApp.Views
                 var parcels = conn.Table<Parcel>().ToList();
 
                 parcelListView.ItemsSource = parcels;
+            }
+        }
+
+        private void ParcelListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var selectedPost = parcelListView.SelectedItem as Parcel;
+
+            if (selectedPost != null)
+            {
+                Navigation.PushAsync(new ParcelDetailPage());
             }
         }
     }
