@@ -5,10 +5,23 @@
              x:Class="DeliveryPersonApp.Views.ParcelPage">
 
     <CollectionView x:Name="parcelListView"
-                    SelectionMode="None">
+                    SelectionChanged="ParcelListView_ItemSelected"
+                    SelectionMode="Single">
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <StackLayout Padding="10" x:DataType="model:Parcel">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup Name="CommonStates">
+                            <VisualState Name="Normal" />
+                            <VisualState Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity" Value="0.4" />
+                                    <Setter Property="BackgroundColor" Value="{StaticResource blueColor}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    
                     <Label Text="{Binding Number}" 
                             LineBreakMode="NoWrap"  
                             FontSize="16" />
