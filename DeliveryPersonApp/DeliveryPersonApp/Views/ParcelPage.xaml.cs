@@ -1,4 +1,5 @@
 ﻿using DeliveryPersonApp.Model;
+using DeliveryPersonApp.ViewModel;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -13,32 +14,19 @@ namespace DeliveryPersonApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ParcelPage : ContentPage
     {
+        private ParcelVM vm;
         public ParcelPage()
         {
             InitializeComponent();
+
+            vm = Resources["vm"] as ParcelVM;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            {
-                conn.CreateTable<Parcel>();
-                var parcels = conn.Table<Parcel>().ToList();
-
-                parcelListView.ItemsSource = parcels;
-            }
-        }
-
-        private void ParcelListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var selectedPost = parcelListView.SelectedItem as Parcel;
-
-            if (selectedPost != null)
-            {
-                Navigation.PushAsync(new ParcelDetailPage());
-            }
+            vm.GetParcels();
         }
     }
 }

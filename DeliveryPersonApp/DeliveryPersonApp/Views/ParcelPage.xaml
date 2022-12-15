@@ -1,37 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model="clr-namespace:DeliveryPersonApp.Model"
+             xmlns:model="clr-namespace:DeliveryPersonApp.Model" 
+             xmlns:vm="clr-namespace:DeliveryPersonApp.ViewModel"
              x:Class="DeliveryPersonApp.Views.ParcelPage">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:ParcelVM x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <CollectionView x:Name="parcelListView"
-                    SelectionChanged="ParcelListView_ItemSelected"
+                    EmptyView="Brak przeyłek do wyświetlenia"
+                    BindingContext="{StaticResource vm}"
+                    ItemsSource="{Binding Parcels}"
+                    SelectedItem="{Binding SelectedParcel}"
                     SelectionMode="Single">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <StackLayout Padding="10" x:DataType="model:Parcel">
+                <StackLayout>
                     <VisualStateManager.VisualStateGroups>
                         <VisualStateGroup Name="CommonStates">
                             <VisualState Name="Normal" />
                             <VisualState Name="Selected">
                                 <VisualState.Setters>
                                     <Setter Property="Opacity" Value="0.4" />
-                                    <Setter Property="BackgroundColor" Value="{StaticResource blueColor}" />
+                                    <Setter Property="BackgroundColor" Value="DarkGray" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
                     </VisualStateManager.VisualStateGroups>
-                    
-                    <Label Text="{Binding Number}" 
-                            LineBreakMode="NoWrap"  
-                            FontSize="16" />
-                    <Label Text="{Binding Description}" 
-                            LineBreakMode="NoWrap"
-                            FontSize="13" />
-                    <Label Text="{Binding Status}" 
-                            LineBreakMode="NoWrap"
-                            FontSize="13"
-                            TextColor="DeepSkyBlue"/>
+
+                    <Frame Margin="5"
+                           Padding="10"
+                           BackgroundColor="#5DA4E9"
+                           CornerRadius="15">
+                        <StackLayout>
+                            <Label Text="{Binding Number}" 
+                                   LineBreakMode="NoWrap"
+                                   FontSize="16"
+                                   TextColor="WhiteSmoke"/>
+                            <ContentView WidthRequest="1"
+                                         HeightRequest="2"
+                                         BackgroundColor="White"/>
+                            <Label Text="{Binding Description}" 
+                                   LineBreakMode="NoWrap"
+                                   FontSize="13"
+                                   TextColor="WhiteSmoke"/>
+                            <Label Text="{Binding Status}" 
+                                   LineBreakMode="NoWrap"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="Aquamarine"/>
+                        </StackLayout>
+                    </Frame>
                 </StackLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>
