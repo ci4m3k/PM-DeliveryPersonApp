@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DeliveryPersonApp.Model;
+using DeliveryPersonApp.ViewModel;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Xamarin.Forms;
@@ -13,12 +15,13 @@ namespace DeliveryPersonApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
-        public ProfilePage()
+        public ProfilePage(Account selectedUser)
         {
             InitializeComponent();
 
-            var assembly = typeof(ProfilePage);
+            (Resources["vm"] as ProfileVM).SelectedUser = selectedUser;
 
+            var assembly = typeof(ProfilePage);
             profileImage.Source = ImageSource.FromResource("DeliveryPersonApp.Assets.Images.ic_launcher.png", assembly);
         }
 

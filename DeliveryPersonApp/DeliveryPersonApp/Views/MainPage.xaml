@@ -2,14 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects="clr-namespace:PlainEntryAndroidSample.Effects"
+             xmlns:vm="clr-namespace:DeliveryPersonApp.ViewModel"
              x:Class="DeliveryPersonApp.Views.MainPage"
              
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="WhiteSmoke">
 
     <ContentPage.Resources>
-        
         <ResourceDictionary>
+            <vm:MainVM x:Key="vm"/>
+
             <Style TargetType="Entry">
                 <Setter Property="HorizontalOptions" Value="Fill" />
                 <Setter Property="TextColor" Value="#2d2d2d" />
@@ -18,7 +20,6 @@
                 <Setter Property="CornerRadius" Value="20" />
             </Style>
         </ResourceDictionary>
-        
     </ContentPage.Resources>
 
     <ContentPage.Content>

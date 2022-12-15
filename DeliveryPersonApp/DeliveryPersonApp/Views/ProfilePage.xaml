@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DeliveryPersonApp.ViewModel"
              x:Class="DeliveryPersonApp.Views.ProfilePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:ProfileVM x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     
     <ContentPage.Content>
 
@@ -12,7 +19,8 @@
 
             <FlexLayout Direction="Column"
                         JustifyContent="Start"
-                        Margin="20">
+                        Margin="20"
+                        BindingContext="{StaticResource vm}">
 
                 <Frame Padding="0"
                        Margin="0,0,0,10"
@@ -30,11 +38,11 @@
                         Text="Zrób zdjęcie"
                         Clicked="makePhotoButton_Clicked" />
 
-                <Label Text="ID: "
+                <Label Text="{Binding SelectedUser.Email}"
                        FontAttributes="Bold"/>
-                <Label Text="Nazwa użytkownika: "
+                <Label Text="{Binding SelectedUser.Password}"
                        FontAttributes="Bold"/>
-                <Label Text="E-mail: "
+                <Label Text="{Binding SelectedUser.UserId} "
                        FontAttributes="Bold"/>
 
             </FlexLayout>

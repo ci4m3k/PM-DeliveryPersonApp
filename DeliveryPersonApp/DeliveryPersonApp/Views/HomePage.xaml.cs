@@ -1,4 +1,5 @@
-﻿using DeliveryPersonApp.Views;
+﻿using DeliveryPersonApp.Model;
+using DeliveryPersonApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,17 @@ namespace DeliveryPersonApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : TabbedPage
     {
-        public HomePage()
+        private Account SelectedUser;
+        public HomePage(Account selectedUser)
         {
             InitializeComponent();
+
+            SelectedUser = selectedUser;
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ProfilePage());
+            Navigation.PushAsync(new ProfilePage(SelectedUser));
         }
 
         // temp
