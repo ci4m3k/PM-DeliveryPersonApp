@@ -1,12 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DeliveryPersonApp.ViewModel"
              x:Class="DeliveryPersonApp.Views.ParcelDetailPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:ParcelDetailVM x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid BindingContext="{StaticResource vm}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Frame Margin="0,5,0,0">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Nazwa: "/>
+                    <Label Text="{Binding SelectedParcel.Number}"
+                       LineBreakMode="NoWrap"/>
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Row="1">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Numer: "/>
+                    <Label Text="{Binding SelectedParcel.Description}"
+                       LineBreakMode="NoWrap"/>
+                </StackLayout>
+            </Frame>
+            <Frame  Grid.Row="2">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Opis: "/>
+                    <Label Text="{Binding SelectedParcel.Status}"
+                   LineBreakMode="NoWrap"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

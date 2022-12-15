@@ -41,9 +41,9 @@
                                    LineBreakMode="NoWrap"
                                    FontSize="16"
                                    TextColor="WhiteSmoke"/>
-                            <ContentView WidthRequest="1"
-                                         HeightRequest="2"
-                                         BackgroundColor="White"/>
+                            <Line WidthRequest="1"
+                                  HeightRequest="2"
+                                  BackgroundColor="White"/>
                             <Label Text="{Binding Description}" 
                                    LineBreakMode="NoWrap"
                                    FontSize="13"

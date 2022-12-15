@@ -21,7 +21,7 @@ namespace DeliveryPersonApp.ViewModel
             {
                 selectedParcel = value;
                 if (selectedParcel != null)
-                    App.Current.MainPage.Navigation.PushAsync(new ParcelDetailPage());
+                    App.Current.MainPage.Navigation.PushAsync(new ParcelDetailPage(selectedParcel));
             }
         }
 
