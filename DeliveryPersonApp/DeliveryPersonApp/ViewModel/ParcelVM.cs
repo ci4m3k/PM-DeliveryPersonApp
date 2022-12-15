@@ -53,7 +53,7 @@ namespace DeliveryPersonApp.ViewModel
                     Weight = 25.2,
                     Size = "100 x 230 mm",
                     City = "Nowy Sącz",
-                    Address = "ul. Królowej Jadwisko 34/1",
+                    Address = "ul. Królowej Jadwigi 34/1",
                     Status= "w realizacji",
                 },
                 new Parcel()
@@ -107,6 +107,7 @@ namespace DeliveryPersonApp.ViewModel
                 Parcels.Clear();
 
                 conn.CreateTable<Parcel>();
+                conn.DeleteAll<Parcel>();
                 var parcels = conn.Table<Parcel>().ToList();
 
                 if (parcels.Count == 0 )
