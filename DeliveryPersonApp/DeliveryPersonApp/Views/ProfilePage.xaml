@@ -38,12 +38,47 @@
                         Text="Zrób zdjęcie"
                         Clicked="makePhotoButton_Clicked" />
 
-                <Label Text="{Binding SelectedUser.Email}"
-                       FontAttributes="Bold"/>
-                <Label Text="{Binding SelectedUser.Password}"
-                       FontAttributes="Bold"/>
-                <Label Text="{Binding SelectedUser.UserId} "
-                       FontAttributes="Bold"/>
+                <Grid Margin="0,15,0,15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Frame Margin="0,5,0,0">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Email: "
+                                   FontAttributes="Bold"/>
+                            <Label Text="{Binding SelectedUser.Email}"
+                       LineBreakMode="NoWrap"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="1">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="UID: "
+                                   FontAttributes="Bold"/>
+                            <Label Text="{Binding SelectedUser.UserId}"
+                       LineBreakMode="NoWrap"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="2">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Imię: "
+                                   FontAttributes="Bold"/>
+                            <Label Text="{Binding SelectedUser.FirstName}"
+                       LineBreakMode="NoWrap"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="3">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Nazwisko: "
+                                   FontAttributes="Bold"/>
+                            <Label Text="{Binding SelectedUser.LastName}"
+                       LineBreakMode="NoWrap"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
 
             </FlexLayout>
 

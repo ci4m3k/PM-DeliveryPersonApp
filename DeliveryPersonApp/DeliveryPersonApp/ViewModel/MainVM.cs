@@ -23,6 +23,8 @@ namespace DeliveryPersonApp.ViewModel
                     Email = "kurier@myparcel.pl",
                     Password = "123456",
                     UserId = "1111",
+                    FirstName = "Marcin",
+                    LastName = "Kozik",
                     //ProfileImgSource = ImageSource.FromResource("DeliveryPersonApp.Assets.Images.logo.png")
                 }
             };
