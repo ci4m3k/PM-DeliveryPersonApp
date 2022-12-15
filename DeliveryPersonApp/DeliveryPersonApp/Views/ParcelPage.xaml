@@ -37,14 +37,14 @@
                            BackgroundColor="#5DA4E9"
                            CornerRadius="15">
                         <StackLayout>
-                            <Label Text="{Binding Number}" 
+                            <Label Text="{Binding Name}" 
                                    LineBreakMode="NoWrap"
                                    FontSize="16"
                                    TextColor="WhiteSmoke"/>
                             <Line WidthRequest="1"
                                   HeightRequest="2"
                                   BackgroundColor="White"/>
-                            <Label Text="{Binding Description}" 
+                            <Label Text="{Binding Number}" 
                                    LineBreakMode="NoWrap"
                                    FontSize="13"
                                    TextColor="WhiteSmoke"/>
