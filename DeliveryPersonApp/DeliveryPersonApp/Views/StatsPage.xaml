@@ -1,12 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DeliveryPersonApp.ViewModel"
              x:Class="DeliveryPersonApp.Views.StatsPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:StatsVM x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid BindingContext="{StaticResource vm}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Frame  Margin="0,5,0,0">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Liczba przyjętych zleceń (łącznie): "/>
+                    <Label Text="{Binding ParcelCount}"
+                       LineBreakMode="NoWrap"/>
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Row="1">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Aktywne zlecenia: 6"/>
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Row="2">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Zakończone zlecenia: 0"/>
+                </StackLayout>
+            </Frame>
+            <Frame  Grid.Row="3">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Anulowane zlecenia: 0"/>
+                </StackLayout>
+            </Frame>
+            <Frame  Grid.Row="4">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Łączna waga przysłek: --"/>
+                </StackLayout>
+            </Frame>
+            <Frame  Grid.Row="5">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Dystans do pokonania: --"/>
+                </StackLayout>
+            </Frame>
+            <Frame  Grid.Row="6">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Czas pracy: --"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
