@@ -42,7 +42,11 @@ namespace DeliveryPersonApp.Views
             {
                 await DisplayAlert("Error", ex.Message.ToString(), "Ok");
             }
+        }
 
+        private void LogoutButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MainPage());
         }
     }
 }

@@ -80,8 +80,19 @@
                     </Frame>
                 </Grid>
 
-            </FlexLayout>
+                <Frame Padding="0"
+                       Margin="0,15,0,0"
+                       CornerRadius="20">
+                    <Button x:Name="logoutButton"
+                          Clicked="LogoutButton_Clicked"
+                          Text="Wyloguj"
+                          BackgroundColor="{StaticResource blueColor}"
+                          CornerRadius="20"
+                          FontAttributes="Bold"
+                          Style="{StaticResource normalButton}"/>
+                </Frame>
 
+            </FlexLayout>
         </Frame>
 
     </ContentPage.Content>
