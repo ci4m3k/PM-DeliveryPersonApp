@@ -23,10 +23,14 @@
     </TabbedPage.BarBackground>-->
 
     <TabbedPage.ToolbarItems>
-        <ToolbarItem Text="Dodaj"
-                     Clicked="AddParcelItem_Clicked"/>
+        <!--<ToolbarItem Text="Dodaj"
+                     Clicked="AddParcelItem_Clicked"/>-->
         <!-- temp -->
+        <ToolbarItem Text="P"
+                     Order="Secondary"
+                     Clicked="ParcelMenuItem_Clicked"/>
         <ToolbarItem Text="Profil"
+                     Order="Primary"
                      IconImageSource="ic_action_person.png"
                      Clicked="ToolbarItem_Clicked"/>
     </TabbedPage.ToolbarItems>

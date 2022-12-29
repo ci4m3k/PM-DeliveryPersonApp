@@ -27,6 +27,11 @@ namespace DeliveryPersonApp.Views
             Navigation.PushAsync(new ProfilePage(SelectedUser));
         }
 
+        private void ParcelMenuItem_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ParcelMenuPage());
+        }
+
         // temp
         private void AddParcelItem_Clicked(object sender, EventArgs e)
         {
