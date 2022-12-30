@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeliveryPersonApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,19 @@ namespace DeliveryPersonApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class DeliveredParcelPage : ContentPage
 	{
-		public DeliveredParcelPage ()
+        private ParcelVM vm;
+        public DeliveredParcelPage ()
 		{
 			InitializeComponent ();
-		}
-	}
+
+            vm = Resources["vm"] as ParcelVM;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            vm.GetParcels();
+        }
+    }
 }

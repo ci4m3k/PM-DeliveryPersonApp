@@ -1,12 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:DeliveryPersonApp.Model" 
+             xmlns:vm="clr-namespace:DeliveryPersonApp.ViewModel"
              x:Class="DeliveryPersonApp.Views.DeliveredParcelPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:ParcelVM x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <CollectionView x:Name="parcelListView"
+                    EmptyView="Brak przeyłek do wyświetlenia"
+                    BindingContext="{StaticResource vm}"
+                    ItemsSource="{Binding Parcels}"
+                    SelectedItem="{Binding SelectedParcel}"
+                    SelectionMode="Single">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup Name="CommonStates">
+                            <VisualState Name="Normal" />
+                            <VisualState Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity" Value="0.4" />
+                                    <Setter Property="BackgroundColor" Value="DarkGray" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+
+                    <Frame Margin="5"
+                           Padding="10"
+                           BackgroundColor="#5DA4E9"
+                           CornerRadius="15">
+                        <StackLayout>
+                            <Label Text="{Binding Name}" 
+                                   LineBreakMode="NoWrap"
+                                   FontSize="16"
+                                   TextColor="WhiteSmoke"/>
+                            <Line WidthRequest="1"
+                                  HeightRequest="2"
+                                  BackgroundColor="White"/>
+                            <Label Text="{Binding Number}" 
+                                   LineBreakMode="NoWrap"
+                                   FontSize="13"
+                                   TextColor="WhiteSmoke"/>
+                            <Label Text="{Binding Status}" 
+                                   LineBreakMode="NoWrap"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="Aquamarine"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
 </ContentPage>
