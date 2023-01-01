@@ -1,4 +1,5 @@
 ﻿using DeliveryPersonApp.Model;
+using DeliveryPersonApp.ViewModel;
 using DeliveryPersonApp.Views;
 using System;
 using System.Collections.Generic;

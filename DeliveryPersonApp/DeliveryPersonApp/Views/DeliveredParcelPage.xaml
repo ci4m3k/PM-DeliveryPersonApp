@@ -7,7 +7,7 @@
     
     <ContentPage.Resources>
         <ResourceDictionary>
-            <vm:ParcelVM x:Key="vm"/>
+            <vm:DeliveredParcelVM x:Key="vm"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 

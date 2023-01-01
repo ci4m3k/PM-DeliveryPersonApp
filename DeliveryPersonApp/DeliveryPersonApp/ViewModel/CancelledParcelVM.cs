@@ -2,24 +2,22 @@
 using DeliveryPersonApp.Views;
 using SQLite;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
-using Xamarin.Forms;
 
 namespace DeliveryPersonApp.ViewModel
 {
-    public class ParcelVM
+    public class CancelledParcelVM
     {
         public ObservableCollection<Parcel> Parcels { get; set; }
 
         private Parcel selectedParcel;
-        public Parcel SelectedParcel 
+        public Parcel SelectedParcel
         {
             get { return selectedParcel; }
-            set 
+            set
             {
                 selectedParcel = value;
                 if (selectedParcel != null)
@@ -27,7 +25,7 @@ namespace DeliveryPersonApp.ViewModel
             }
         }
 
-        public ParcelVM()
+        public CancelledParcelVM()
         {
             Parcels = new ObservableCollection<Parcel>();
         }
@@ -100,7 +98,7 @@ namespace DeliveryPersonApp.ViewModel
                     Size = "600 x 800 mm",
                     City = "Kraków",
                     Address = "ul. Warszawska 49/2",
-                    Status= "anulowane",
+                    Status= "odrzucone",
                 }
             };
 
@@ -112,19 +110,19 @@ namespace DeliveryPersonApp.ViewModel
                 conn.DeleteAll<Parcel>();
                 var parcels = conn.Table<Parcel>().ToList();
 
-                if (parcels.Count == 0 )
+                if (parcels.Count == 0)
                 {
-                    foreach(var parcel in parcelsList) 
+                    foreach (var parcel in parcelsList)
                     {
                         parcels.Add(parcel);
                     }
                 }
 
-                var activeParcels = (from p in parcels
-                                     where p.Status == "w realizacji"
-                                     select p);
+                var deliveredParcels = (from p in parcels
+                                        where p.Status == "odrzucone"
+                                        select p).ToList();
 
-                foreach(var parcel in activeParcels)
+                foreach (var parcel in deliveredParcels)
                 {
                     Parcels.Add(parcel);
                 }

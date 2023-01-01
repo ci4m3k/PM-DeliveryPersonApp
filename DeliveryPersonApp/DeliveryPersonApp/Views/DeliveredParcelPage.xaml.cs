@@ -13,12 +13,12 @@ namespace DeliveryPersonApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class DeliveredParcelPage : ContentPage
 	{
-        private ParcelVM vm;
+        private DeliveredParcelVM vm;
         public DeliveredParcelPage ()
 		{
 			InitializeComponent ();
 
-            vm = Resources["vm"] as ParcelVM;
+            vm = Resources["vm"] as DeliveredParcelVM;
         }
 
         protected override void OnAppearing()
