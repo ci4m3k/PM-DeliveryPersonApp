@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:DeliveryPersonApp.Model" 
              xmlns:vm="clr-namespace:DeliveryPersonApp.ViewModel"
-             x:Class="DeliveryPersonApp.Views.CancelledParcelPage">
-    
+             x:Class="DeliveryPersonApp.Views.RejectedParcelPage">
+
     <ContentPage.Resources>
         <ResourceDictionary>
-            <vm:CancelledParcelVM x:Key="vm"/>
+            <vm:RejectedParcelVM x:Key="vm"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 

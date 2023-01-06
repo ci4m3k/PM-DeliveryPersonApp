@@ -10,15 +10,15 @@ using Xamarin.Forms.Xaml;
 
 namespace DeliveryPersonApp.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CancelledParcelPage : ContentPage
-	{
-		private CancelledParcelVM vm;
-		public CancelledParcelPage ()
-		{
-			InitializeComponent ();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class RejectedParcelPage : ContentPage
+    {
+        private RejectedParcelVM vm;
+        public RejectedParcelPage()
+        {
+            InitializeComponent();
 
-            vm = Resources["vm"] as CancelledParcelVM;
+            vm = Resources["vm"] as RejectedParcelVM;
         }
 
         protected override void OnAppearing()

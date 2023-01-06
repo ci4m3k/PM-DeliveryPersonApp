@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DeliveryPersonApp.ViewModel
 {
-    public class CancelledParcelVM
+    public class RejectedParcelVM
     {
         public ObservableCollection<Parcel> Parcels { get; set; }
 
@@ -25,7 +25,7 @@ namespace DeliveryPersonApp.ViewModel
             }
         }
 
-        public CancelledParcelVM()
+        public RejectedParcelVM()
         {
             Parcels = new ObservableCollection<Parcel>();
         }
@@ -39,11 +39,11 @@ namespace DeliveryPersonApp.ViewModel
                 conn.CreateTable<Parcel>();
                 var parcels = conn.Table<Parcel>().ToList();
 
-                var cancelledParcels = (from p in parcels
-                                        where p.Status == "odrzucone"
-                                        select p).ToList();
+                var rejectedParcels = (from p in parcels
+                                       where p.Status == "odrzucone"
+                                       select p).ToList();
 
-                foreach (var parcel in cancelledParcels)
+                foreach (var parcel in rejectedParcels)
                 {
                     Parcels.Add(parcel);
                 }

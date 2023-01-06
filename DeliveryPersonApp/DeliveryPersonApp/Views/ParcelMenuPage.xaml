@@ -11,5 +11,5 @@
             SelectedTabColor="{StaticResource blueColor}">
 
     <local:DeliveredParcelPage Title="Dostarczone"/>
-    <local:CancelledParcelPage Title="Odrzucone"/>
+    <local:RejectedParcelPage Title="Odrzucone"/>
 </TabbedPage>
