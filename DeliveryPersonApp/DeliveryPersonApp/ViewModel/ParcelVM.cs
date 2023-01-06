@@ -45,7 +45,7 @@ namespace DeliveryPersonApp.ViewModel
                     Size = "200 x 400 mm",
                     City = "Nowy Sącz",
                     Address = "ul. Zamenhoffa 1",
-                    Status= "zrealizowane",
+                    Status = "zrealizowane",
                 },
                 new Parcel()
                 {
@@ -56,7 +56,7 @@ namespace DeliveryPersonApp.ViewModel
                     Size = "100 x 230 mm",
                     City = "Nowy Sącz",
                     Address = "ul. Królowej Jadwigi 34/1",
-                    Status= "w realizacji",
+                    Status = "w realizacji",
                 },
                 new Parcel()
                 {
@@ -67,7 +67,7 @@ namespace DeliveryPersonApp.ViewModel
                     Size = "150 x 120 mm",
                     City = "Nowy Sącz",
                     Address = "ul. Browarna 23/4",
-                    Status= "w realizacji",
+                    Status = "w realizacji",
                 },
                 new Parcel()
                 {
@@ -78,7 +78,7 @@ namespace DeliveryPersonApp.ViewModel
                     Size = "600 x 423 mm",
                     City = "Kraków",
                     Address = "ul. Gabrieli Zapolskiej 21A/39",
-                    Status= "w realizacji",
+                    Status = "w realizacji",
                 },
                 new Parcel()
                 {
@@ -89,7 +89,7 @@ namespace DeliveryPersonApp.ViewModel
                     Size = "150 x 150 mm",
                     City = "Nowy Sącz",
                     Address = "ul. Staszica 1",
-                    Status= "w realizacji",
+                    Status = "w realizacji",
                 },
                 new Parcel()
                 {
@@ -100,7 +100,7 @@ namespace DeliveryPersonApp.ViewModel
                     Size = "600 x 800 mm",
                     City = "Kraków",
                     Address = "ul. Warszawska 49/2",
-                    Status= "anulowane",
+                    Status = "odrzucone",
                 }
             };
 
@@ -110,15 +110,13 @@ namespace DeliveryPersonApp.ViewModel
 
                 conn.CreateTable<Parcel>();
                 conn.DeleteAll<Parcel>();
-                var parcels = conn.Table<Parcel>().ToList();
-
-                if (parcels.Count == 0 )
+                
+                foreach(var parcel in parcelsList) 
                 {
-                    foreach(var parcel in parcelsList) 
-                    {
-                        parcels.Add(parcel);
-                    }
+                    conn.Insert(parcel);
                 }
+
+                var parcels = conn.Table<Parcel>().ToList();
 
                 var activeParcels = (from p in parcels
                                      where p.Status == "w realizacji"
