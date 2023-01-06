@@ -31,17 +31,23 @@
             </Frame>
             <Frame Grid.Row="1">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Aktywne zlecenia: 6"/>
+                    <Label Text="Aktywne zlecenia: "/>
+                    <Label Text="{Binding ActiveParcelCount}"
+                       LineBreakMode="NoWrap"/>
                 </StackLayout>
             </Frame>
             <Frame Grid.Row="2">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Zakończone zlecenia: 0"/>
+                    <Label Text="Zakończone zlecenia: "/>
+                    <Label Text="{Binding DeliveredParcelCount}"
+                       LineBreakMode="NoWrap"/>
                 </StackLayout>
             </Frame>
             <Frame  Grid.Row="3">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Anulowane zlecenia: 0"/>
+                    <Label Text="Anulowane zlecenia: "/>
+                    <Label Text="{Binding RejectedParcelCount}"
+                       LineBreakMode="NoWrap"/>
                 </StackLayout>
             </Frame>
             <Frame  Grid.Row="4">

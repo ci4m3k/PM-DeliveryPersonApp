@@ -2,6 +2,7 @@
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,40 @@ namespace DeliveryPersonApp.ViewModel
                 OnPropertyChanged("ParcelCount");
             }
         }
+
+        private int activeParcelCount;
+        public int ActiveParcelCount
+        {
+            get { return activeParcelCount; }
+            set
+            {
+                activeParcelCount = value;
+                OnPropertyChanged("ActiveParcelCount");
+            }
+        }
+
+        private int deliveredParcelCount;
+        public int DeliveredParcelCount
+        {
+            get { return deliveredParcelCount; }
+            set
+            {
+                deliveredParcelCount = value;
+                OnPropertyChanged("DeliveredParcelCount");
+            }
+        }
+
+        private int rejectedParcelCount;
+        public int RejectedParcelCount
+        {
+            get { return rejectedParcelCount; }
+            set
+            {
+                rejectedParcelCount = value;
+                OnPropertyChanged("RejectedParcelCount");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         
         public StatsVM()
@@ -30,9 +65,22 @@ namespace DeliveryPersonApp.ViewModel
         {
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
-                var parcels = conn.Table<Parcel>();
+                conn.CreateTable<Parcel>();
+                var parcels = conn.Table<Parcel>().ToList();
 
-                ParcelCount = 6;
+                ParcelCount = parcels.Count();
+
+                ActiveParcelCount = (from p in parcels
+                                     where p.Status == "w realizacji"
+                                     select p).Count();
+
+                DeliveredParcelCount = (from p in parcels
+                                     where p.Status == "zrealizowane"
+                                     select p).Count();
+
+                RejectedParcelCount = (from p in parcels
+                                     where p.Status == "odrzucone"
+                                     select p).Count();
             }
         }
 
