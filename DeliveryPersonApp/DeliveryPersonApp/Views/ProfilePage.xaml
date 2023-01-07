@@ -36,7 +36,8 @@
 
                 <Button x:Name="makePhotoButton" 
                         Text="Zrób zdjęcie"
-                        Clicked="makePhotoButton_Clicked" />
+                        Command="{Binding MakePhotoCommand}"
+                        CommandParameter="{Binding PhotoIsReady}"/>
 
                 <Grid Margin="0,15,0,15">
                     <Grid.RowDefinitions>
