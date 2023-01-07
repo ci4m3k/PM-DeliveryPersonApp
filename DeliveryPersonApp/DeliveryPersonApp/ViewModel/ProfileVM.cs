@@ -1,4 +1,5 @@
 ﻿using DeliveryPersonApp.Model;
+using DeliveryPersonApp.Views;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using SQLite;
@@ -45,6 +46,8 @@ namespace DeliveryPersonApp.ViewModel
             get { return true; }
         }
 
+        public Page CurrentPage { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ProfileVM() 
@@ -84,6 +87,9 @@ namespace DeliveryPersonApp.ViewModel
                 conn.CreateTable<Account>();
                 conn.Update(SelectedUser);
             }
+
+            await App.Current.MainPage.Navigation.PushAsync(new ProfilePage(SelectedUser));
+            App.Current.MainPage.Navigation.RemovePage(CurrentPage);
         }
 
         private bool CanSave(bool parameter)

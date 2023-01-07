@@ -20,6 +20,7 @@ namespace DeliveryPersonApp.Views
             InitializeComponent();
 
             (Resources["vm"] as ProfileVM).SelectedUser = selectedUser;
+            (Resources["vm"] as ProfileVM).CurrentPage = this;
 
             var assembly = typeof(ProfilePage);
 
