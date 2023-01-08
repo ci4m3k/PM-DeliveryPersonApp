@@ -19,6 +19,7 @@ namespace DeliveryPersonApp.Views
             InitializeComponent();
 
             (Resources["vm"] as ParcelDetailVM).SelectedParcel = selectedParcel;
+            (Resources["vm"] as ParcelDetailVM).CurrentPage = this;
 
             if (selectedParcel.Status == "zrealizowane" || selectedParcel.Status == "odrzucone")
             {
