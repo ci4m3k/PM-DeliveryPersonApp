@@ -52,7 +52,7 @@
                                    LineBreakMode="NoWrap"
                                    FontSize="13"
                                    FontAttributes="Bold"
-                                   TextColor="Aquamarine"/>
+                                   TextColor="#FF000A"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>

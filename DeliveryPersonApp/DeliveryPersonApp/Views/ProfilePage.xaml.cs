@@ -33,6 +33,12 @@ namespace DeliveryPersonApp.Views
         private void LogoutButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new MainPage());
+
+            var existingPages = Navigation.NavigationStack.ToList();
+            foreach (var page in existingPages)
+            {
+                Navigation.RemovePage(page);
+            }
         }
     }
 }

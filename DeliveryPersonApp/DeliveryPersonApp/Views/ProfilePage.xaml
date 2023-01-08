@@ -13,13 +13,13 @@
     <ContentPage.Content>
 
         <Frame Padding="5"
-               Margin="20"
+               Margin="15"
                BorderColor="DarkGray"
                CornerRadius="40">
 
             <FlexLayout Direction="Column"
                         JustifyContent="Start"
-                        Margin="20"
+                        Margin="5,15,5,15"
                         BindingContext="{StaticResource vm}">
 
                 <Frame Padding="0"
@@ -37,7 +37,14 @@
                 <Button x:Name="makePhotoButton" 
                         Text="Zrób zdjęcie"
                         Command="{Binding MakePhotoCommand}"
-                        CommandParameter="{Binding PhotoIsReady}"/>
+                        CommandParameter="{Binding PhotoIsReady}"
+                        BackgroundColor="{StaticResource purpleColor}"
+                        HeightRequest="40"
+                        WidthRequest="250"
+                        CornerRadius="10"
+                        FontAttributes="Bold"
+                        FlexLayout.AlignSelf="Center"
+                        Style="{StaticResource normalButton}"/>
 
                 <Grid Margin="0,15,0,15">
                     <Grid.RowDefinitions>

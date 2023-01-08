@@ -19,6 +19,11 @@ namespace DeliveryPersonApp.Views
             InitializeComponent();
 
             (Resources["vm"] as ParcelDetailVM).SelectedParcel = selectedParcel;
+
+            if (selectedParcel.Status == "zrealizowane" || selectedParcel.Status == "odrzucone")
+            {
+                deliverParcelFrame.IsVisible = false;
+            }
         }
     }
 }

@@ -67,7 +67,7 @@ namespace DeliveryPersonApp.ViewModel
                 });
                 if (photo != null)
                 {
-                    ProfileImagePath = photo.Path;
+                    SelectedUser.ProfileImagePath = photo.Path;
                 }
 
             }
@@ -79,8 +79,6 @@ namespace DeliveryPersonApp.ViewModel
             string dbName = "account_db.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullPath = Path.Combine(folderPath, dbName);
-
-            SelectedUser.ProfileImagePath = ProfileImagePath;
 
             using (SQLiteConnection conn = new SQLiteConnection(fullPath))
             {

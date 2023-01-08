@@ -27,68 +27,77 @@
 
             <Frame Margin="0,5,0,0">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Nazwa: "/>
+                    <Label Text="Nazwa: "
+                           FontAttributes="Bold"/>
                     <Label Text="{Binding SelectedParcel.Name}"
-                       LineBreakMode="NoWrap"/>
+                           LineBreakMode="NoWrap"/>
                 </StackLayout>
             </Frame>
             <Frame Grid.Row="1">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Numer: "/>
+                    <Label Text="Numer: "
+                           FontAttributes="Bold"/>
                     <Label Text="{Binding SelectedParcel.Number}"
-                       LineBreakMode="NoWrap"/>
+                           LineBreakMode="NoWrap"/>
                 </StackLayout>
             </Frame>
             <Frame  Grid.Row="2">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Opis: "/>
+                    <Label Text="Opis: "
+                           FontAttributes="Bold"/>
                     <Label Text="{Binding SelectedParcel.Description}"
-                   LineBreakMode="NoWrap"/>
+                           LineBreakMode="NoWrap"/>
                 </StackLayout>
             </Frame>
             <Frame  Grid.Row="3">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Waga: "/>
+                    <Label Text="Waga: "
+                           FontAttributes="Bold"/>
                     <Label Text="{Binding SelectedParcel.Weight}"
-                   LineBreakMode="NoWrap"/>
+                           LineBreakMode="NoWrap"/>
                 </StackLayout>
             </Frame>
             <Frame  Grid.Row="4">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Wymiary: "/>
+                    <Label Text="Wymiary: "
+                           FontAttributes="Bold"/>
                     <Label Text="{Binding SelectedParcel.Size}"
-                   LineBreakMode="NoWrap"/>
+                            LineBreakMode="NoWrap"/>
                 </StackLayout>
             </Frame>
             <Frame  Grid.Row="5">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Miasto: "/>
+                    <Label Text="Miasto: "
+                           FontAttributes="Bold"/>
                     <Label Text="{Binding SelectedParcel.City}"
-                   LineBreakMode="NoWrap"/>
+                            LineBreakMode="NoWrap"/>
                 </StackLayout>
             </Frame>
             <Frame  Grid.Row="6">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Adres: "/>
+                    <Label Text="Adres: "
+                           FontAttributes="Bold"/>
                     <Label Text="{Binding SelectedParcel.Address}"
-                   LineBreakMode="NoWrap"/>
+                           LineBreakMode="NoWrap"/>
                 </StackLayout>
             </Frame>
             <Frame  Grid.Row="7">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Status: "/>
+                    <Label Text="Status: "
+                           FontAttributes="Bold"/>
                     <Label Text="{Binding SelectedParcel.Status}"
-                   LineBreakMode="NoWrap"/>
+                           LineBreakMode="NoWrap"/>
                 </StackLayout>
             </Frame>
 
-            <Frame Grid.Row="8"
+            <Frame x:Name="deliverParcelFrame"
+                   Grid.Row="8"
                    Padding="0"
-                   Margin="0,15,0,0"
+                   Margin="5,15,5,0"
                    CornerRadius="20">
                 <Button x:Name="deliverParcelButton"
                           Text="Zakończ zlecenie"
-                          BackgroundColor="Green"
+                          BackgroundColor="#47B947"
                           CornerRadius="20"
                           FontAttributes="Bold"
                           Style="{StaticResource normalButton}"/>
