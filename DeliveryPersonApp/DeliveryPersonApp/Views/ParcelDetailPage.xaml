@@ -96,6 +96,8 @@
                    Margin="5,15,5,0"
                    CornerRadius="20">
                 <Button x:Name="deliverParcelButton"
+                          Command="{Binding DeliverParcelCommand}"
+                          CommandParameter="{Binding ParcelIsReady}"
                           Text="Zakończ zlecenie"
                           BackgroundColor="#47B947"
                           CornerRadius="20"
