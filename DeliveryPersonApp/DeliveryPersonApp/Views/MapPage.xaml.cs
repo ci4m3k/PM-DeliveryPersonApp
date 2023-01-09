@@ -1,5 +1,8 @@
-﻿using Plugin.Geolocator;
+﻿using DeliveryPersonApp.Model;
+using DeliveryPersonApp.ViewModel;
+using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +31,7 @@ namespace DeliveryPersonApp.Views
             base.OnAppearing();
 
             GetLocation();
+            GetParcels();
         }
 
         protected override void OnDisappearing()
@@ -35,6 +39,44 @@ namespace DeliveryPersonApp.Views
             base.OnDisappearing();
 
             locator.StopListeningAsync();
+        }
+
+        private void GetParcels()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            {
+                conn.CreateTable<Parcel>();
+                var parcels = conn.Table<Parcel>().ToList();
+
+                var activeParcels = (from p in parcels
+                                     where p.Status == "w realizacji"
+                                     select p).ToList();
+
+                DisplayOnMap(activeParcels);
+            }
+        }
+
+        private void DisplayOnMap(List<Parcel> parcels)
+        {
+            foreach (var parcel in parcels)
+            {
+                try
+                {
+                    var pinCoordinates = new Xamarin.Forms.Maps.Position(parcel.Latitude, parcel.Longitude);
+
+                    var pin = new Pin()
+                    {
+                        Position = pinCoordinates,
+                        Label = parcel.Name,
+                        Address = parcel.Address,
+                        Type = PinType.SavedPin
+                    };
+
+                    locationsMap.Pins.Add(pin);
+                }
+                catch (NullReferenceException nre) { }
+                catch (Exception ex) { }
+            }
         }
 
         private async void GetLocation()
