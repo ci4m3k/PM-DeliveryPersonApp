@@ -26,7 +26,8 @@
 
         <FlexLayout Direction="Column"
                     JustifyContent="Start"
-                    Margin="20">
+                    Margin="20"
+                    BindingContext="{StaticResource vm}">
 
             <Frame Padding="0"
                    Margin="0,50,0,65"
@@ -49,6 +50,7 @@
                    BorderColor="DarkGray">
                 <Entry x:Name="emailEntry"
                         Placeholder="Email"
+                        Text="{Binding Email}"
                         Keyboard="Email">
                     <Entry.Effects>
                         <effects:PlainEntry/>
@@ -61,6 +63,7 @@
                    BorderColor="DarkGray">
                 <Entry x:Name="passwordEntry"
                          Placeholder="Hasło"
+                         Text="{Binding Password}"
                          IsPassword="True">
                         <Entry.Effects>
                             <effects:PlainEntry/>
@@ -71,7 +74,8 @@
             <Frame Padding="0"
                    Margin="0,15,0,0">
                 <Button x:Name="loginButton"
-                          Clicked="LoginButton_Clicked"
+                          Command="{Binding LoginCommand}"
+                          CommandParameter="{Binding LoginIsReady}"
                           Text="Zaloguj"
                           BackgroundColor="{StaticResource blueColor}"
                           CornerRadius="20"
